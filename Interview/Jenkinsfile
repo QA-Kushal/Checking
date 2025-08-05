@@ -2,28 +2,19 @@ pipeline {
     agent any
 
     stages {
-        stage('Checkout') {
-            steps {
-                // Checkout the repo code
-                git 'https://github.com/QA-Kushal/Checking'
-            }
-        }
-
         stage('Compile Java') {
             steps {
-                sh '''
-                    cd interview/src
-                    javac com/interview/questions/checking_pipeline.java
-                '''
+                dir('interview/src') {
+                    sh 'javac com/interview/questions/checking_pipeline.java'
+                }
             }
         }
 
         stage('Run Class') {
             steps {
-                sh '''
-                    cd interview/src
-                    java com.interview.questions.checking_pipeline
-                '''
+                dir('interview/src') {
+                    sh 'java com.interview.questions.checking_pipeline'
+                }
             }
         }
     }
