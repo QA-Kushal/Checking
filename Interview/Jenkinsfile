@@ -5,7 +5,7 @@ pipeline {
         stage('Compile Java') {
             steps {
                 dir('interview/src') {
-                    sh 'javac com/interview/questions/checking_pipeline.java'
+                    sh 'javac com/interview/questions/Checking_Pipeline.java'
                 }
             }
         }
@@ -13,7 +13,7 @@ pipeline {
         stage('Run Class') {
             steps {
                 dir('interview/src') {
-                    sh 'java com.interview.questions.checking_pipeline'
+                    sh 'java com.interview.questions.Checking_Pipeline'
                 }
             }
         }
